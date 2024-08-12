@@ -19,7 +19,7 @@ ui <- fluidPage(
     ),
     mainPanel(
       h3("Your Mad Libs Story:"),
-      textOutput("story")
+      textOutput("story2")
     )
   )
 )
@@ -30,6 +30,9 @@ server <- function(input, output) {
   })
   output$story <- renderText({
     story()
+  })
+  output$story2 <- renderText({
+    generate_story(input$noun1, input$verb, input$adjective, input$adverb)
   })
 }
 
